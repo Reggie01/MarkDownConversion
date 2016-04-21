@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1">
+    <title>Markdown Preview</title>
+    <link rel="stylesheet" href="input.css">
+    <script src="react.js"></script>
+    <script src="react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.6.16/browser.js"></script>
+</head>
+<body>
+<div id="contentText"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
+<script>
+    //window.onload = function() {
+        // var contentText = document.getElementById("contentText");
+        // var content = document.getElementById("content");
+        // var leftContainer = document.getElementById("left-container");
+        
+        // function contextHandler(e) {
+            // console.log(e);
+            // var value = contentText.value;
+            // console.log( value );
+            // content.innerHTML = marked(value);
+        // } 
+        // contentText.addEventListener("keyup", contextHandler, false);
+    // }    
+</script>
+<script type="text/babel">
+    var MarkDownContainer = React.createClass({
+        getInitialState: function() {
+            return {
+                currentText: "Heading\n=======\n\nSub-heading\n-----------" +
+                                    "\n\n### Another deeper heading\n\n" + 
+                                    "Paragraphs are seperated\n" + 
+                                    "by a blank line.\n\n" + 
+                                    "Text attributes *italic*, **bold**,\n"+
+                                    "`monospace`, ~~strikethrough~~\n\n" +
+                                    "Shopping list:\n\n" + 
+                                    "* apples\n" +
+                                    "* oranges\n" +
+                                    "* pears"
+            } 
+        },
+        changeText: function(data) {
+            this.setState({
+                currentText: data
+            })
+        },
+        render: function() {
+            return (
+                <div class="container">
+                  <div class="row">
+                    <MarkDownInput updateText={this.state.changeText} userText={this.state.currentText} />
+                    <MarkDownDisplay userText={this.state.currentText} />
+                  </div>
+               </div>
+            )
+        }
+    });
+    
+    var MarkDownDisplay = React.createClass({
+        render: function() {
+            var text = { __html: marked(this.props.userText) };
+            return (
+                <div className="col-md-6">
+                    <p dangerouslySetInnerHTML={text}></p>
+                </div>
+            )
+        }
+    });
+    
+     var MarkDownInput = React.createClass({
+          getInitialState: function() {
+              return {
+                  name: this.props.userText
+              }
+          },
+          handleChange: function(e){
+            this.setState({
+                name: e.target.value
+            });
+          },
+          render: function() {
+            return (
+              <div className="col-md-6 editor-container">
+                <textarea id="contentText" type="text" rows="30" cols="75" value={this.props.userText} 
+                onChange={this.handleChange} ></textarea>
+              </div>
+            )
+          }
+     });
+        
+     ReactDOM.render(
+         <MarkDownContainer />,
+         document.getElementById("contentText")
+     )
+        
+</script>
+</body>
+</html>

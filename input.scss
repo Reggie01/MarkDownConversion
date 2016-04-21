@@ -1,0 +1,41 @@
+// rem fallback - credits: http://zerosixthree.se/8-sass-mixins-you-must-have-in-your-toolbox/
+@function calculateRem($size) {
+    $remSize: $size / 16px;
+    @return $remSize * 1rem;
+}
+
+@mixin font-size($size){
+    font-size: $size;
+    font-size: calculateRem($size);
+}
+
+html * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html { font-size: 100%; }
+
+html, body { height: 100%; }    
+
+textarea {
+    font-size: 18px;
+}
+
+.container {
+  left: 15px;
+  right: 15px;
+}
+
+.col-md-6 {
+  width: 50%;
+  float: left;
+}
+
+.editor-container {
+  float: left;
+}
+
+
+
+

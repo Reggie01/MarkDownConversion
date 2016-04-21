@@ -1,0 +1,25 @@
+html * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+html {
+  font-size: 100%; }
+
+html, body {
+  height: 100%; }
+
+textarea {
+  font-size: 18px; }
+
+.container {
+  left: 15px;
+  right: 15px; }
+
+.col-md-6 {
+  width: 50%;
+  float: left; }
+
+.editor-container {
+  float: left; }
+
+/*# sourceMappingURL=input.css.map */
