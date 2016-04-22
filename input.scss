@@ -19,7 +19,15 @@ html { font-size: 100%; }
 html, body { height: 100%; }    
 
 textarea {
-    font-size: 18px;
+  font-size: 18px;
+  border-left: 1px solid #F9E666;
+  border-right: 1px solid #F9E666;
+  box-shadow: 0px 0px 10px #F9E666;
+  
+}
+
+.title {
+  text-align: center;
 }
 
 .container {
@@ -35,6 +43,29 @@ textarea {
 .editor-container {
   float: left;
 }
+
+.display {
+  border-left: 1px solid #83F966;
+  border-right: 1px solid #83F966;
+  box-shadow: 0px 0px 10px #83F966;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

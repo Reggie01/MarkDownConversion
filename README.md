@@ -2,7 +2,7 @@
 
 This is FreeCodeCamp Zipline project "[Build a Markdown Previewer](https://www.freecodecamp.com/challenges/build-a-markdown-previewer)". Follow the link
 to see all user stories for the [project](https://www.freecodecamp.com/challenges/build-a-markdown-previewer).
-My first version of the Twitch JSON API is at [codepen](http://codepen.io/Reggie01/full/WwNbjg/) and source code [github](https://github.com/Reggie01/Zipline/tree/master/Zipline/TwitchtvJSONAPI).
+My codepen version of the Markdown Previewer is at [codepen](http://codepen.io/Reggie01/full/WwNbjg/) and source code [github](https://github.com/Reggie01/MarkDownConversion).
 
 ### User Stories
 * I can type GitHub-flavored Markdown into a text area.
@@ -21,6 +21,4 @@ My first version of the Twitch JSON API is at [codepen](http://codepen.io/Reggie
 * javascript
 * html
 * css
-* jquery
-* bootstrap
-* handlebars
+* react

@@ -48,16 +48,19 @@
         changeText: function(data) {
             this.setState({
                 currentText: data
-            })
+            });
         },
         render: function() {
             return (
-                <div class="container">
-                  <div class="row">
-                    <MarkDownInput updateText={this.state.changeText} userText={this.state.currentText} />
-                    <MarkDownDisplay userText={this.state.currentText} />
+                <div>
+                  <h1 className="title">Markdown Previewer</h1>
+                  <div class="container">
+                    <div class="row">
+                      <MarkDownInput updateText={this.changeText} userText={this.state.currentText} />
+                      <MarkDownDisplay userText={this.state.currentText} />
+                    </div>
                   </div>
-               </div>
+                </div>
             )
         }
     });
@@ -67,7 +70,9 @@
             var text = { __html: marked(this.props.userText) };
             return (
                 <div className="col-md-6">
-                    <p dangerouslySetInnerHTML={text}></p>
+                    <div className="display">
+                      <p dangerouslySetInnerHTML={text}></p>
+                    </div>
                 </div>
             )
         }
@@ -83,11 +88,12 @@
             this.setState({
                 name: e.target.value
             });
+            this.props.updateText(e.target.value);
           },
           render: function() {
             return (
               <div className="col-md-6 editor-container">
-                <textarea id="contentText" type="text" rows="30" cols="75" value={this.props.userText} 
+                <textarea id="contentText" type="text" rows="25" cols="55" value={this.state.name} 
                 onChange={this.handleChange} ></textarea>
               </div>
             )
